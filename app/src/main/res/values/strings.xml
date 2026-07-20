@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">s8089387Assignment2</string>
+
+    <!-- text shown above the username field -->
+    <string name="login_title">Login</string>
+    <!-- placeholder text inside the username input -->
+    <string name="hint_username">Username</string>
+    <!-- placeholder text inside the password input -->
+    <string name="hint_password">Password</string>
+    <!-- text on the login button -->
+    <string name="btn_login">Login</string>
+    <!-- shown if login fails, filled in with the actual error later -->
+    <string name="login_error_generic">Login failed. Please try again.</string>
+    <!-- accessibility description for the app logo image -->
+    <string name="desc_logo">App logo</string>
+
 </resources>

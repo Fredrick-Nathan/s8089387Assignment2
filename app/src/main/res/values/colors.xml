@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- semi-transparent white overlay to keep text readable over the background image -->
+    <color name="overlay_white_60">#99FFFFFF</color>
 </resources>
