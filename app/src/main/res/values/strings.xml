@@ -13,5 +13,7 @@
     <string name="login_error_generic">Login failed. Please try again.</string>
     <!-- accessibility description for the app logo image -->
     <string name="desc_logo">App logo</string>
+    <!-- title shown on the Dashboard screen -->
+    <string name="dashboard_title">Dashboard</string>
 
 </resources>
