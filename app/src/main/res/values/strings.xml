@@ -15,5 +15,7 @@
     <string name="desc_logo">App logo</string>
     <!-- title shown on the Dashboard screen -->
     <string name="dashboard_title">Dashboard</string>
+    <!-- title shown on the Details screen -->
+    <string name="details_title">Animal Details</string>
 
 </resources>
