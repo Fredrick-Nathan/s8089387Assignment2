@@ -14,6 +14,7 @@ import com.example.s8089387assignment2.MainActivity
 import com.example.s8089387assignment2.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import com.example.s8089387assignment2.ui.details.DetailsActivity
 
 @AndroidEntryPoint
 class DashboardActivity : AppCompatActivity() {
@@ -43,7 +44,19 @@ class DashboardActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         val recyclerDashboard = findViewById<RecyclerView>(R.id.recyclerDashboard)
         adapter = DashboardAdapter { entity ->
-            // navigation to Details screen wired up in a later commit
+            // pass the clicked entity's fields to Details via Intent extras
+            val intent = android.content.Intent(
+                this,
+                com.example.s8089387assignment2.ui.details.DetailsActivity::class.java
+            )
+            intent.putExtra(DetailsActivity.EXTRA_SPECIES, entity.species)
+            intent.putExtra(DetailsActivity.EXTRA_SCIENTIFIC_NAME, entity.scientificName)
+            intent.putExtra(DetailsActivity.EXTRA_HABITAT, entity.habitat)
+            intent.putExtra(DetailsActivity.EXTRA_DIET, entity.diet)
+            intent.putExtra(DetailsActivity.EXTRA_CONSERVATION_STATUS, entity.conservationStatus)
+            intent.putExtra(DetailsActivity.EXTRA_LIFESPAN, entity.averageLifespan)
+            intent.putExtra(DetailsActivity.EXTRA_DESCRIPTION, entity.description)
+            startActivity(intent)
         }
         recyclerDashboard.adapter = adapter
     }
