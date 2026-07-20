@@ -2,7 +2,6 @@ package com.example.s8089387assignment2.ui.dashboard
 
 import android.os.Bundle
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
