@@ -1,7 +1,6 @@
 package com.example.s8089387assignment2
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +17,11 @@ import kotlinx.coroutines.launch
 // required on any Activity that injects Hilt dependencies, like the ViewModel below
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        // key used to pass the keypass to DashboardActivity via Intent extras
+        const val EXTRA_KEYPASS = "extra_keypass"
+    }
 
     // requests LoginViewModel from Hilt, scoped to this Activity's lifecycle
     private val viewModel: LoginViewModel by viewModels()
@@ -72,12 +76,14 @@ class MainActivity : AppCompatActivity() {
                         is LoginUiState.Success -> {
                             progressLogin.visibility = android.view.View.GONE
                             btnLogin.isEnabled = true
-                            // placeholder until Dashboard screen exists (commit #10 adds real navigation)
-                            Toast.makeText(
+                            // navigate to Dashboard, passing the keypass it needs to fetch entities
+                            val intent = android.content.Intent(
                                 this@MainActivity,
-                                "Login successful. Keypass: ${state.keypass}",
-                                Toast.LENGTH_LONG
-                            ).show()
+                                com.example.s8089387assignment2.ui.dashboard.DashboardActivity::class.java
+                            )
+                            intent.putExtra(EXTRA_KEYPASS, state.keypass)
+                            startActivity(intent)
+                            finish()
                         }
                         is LoginUiState.Error -> {
                             progressLogin.visibility = android.view.View.GONE
